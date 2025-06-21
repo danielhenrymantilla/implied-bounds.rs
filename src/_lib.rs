@@ -1,7 +1,12 @@
+//! [`implied_bounds`]: `implied_bounds`
+//! [`ImpliedPredicate`]: `ImpliedPredicate`
 #![doc = include_str!("../README.md")]
 #![no_std]
 #![forbid(unsafe_code)]
 #![allow(unused_braces)]
+#![doc(html_logo_url = "https://gist.github.com/user-attachments/assets/528cd8ea-f954-434c-a7f2-6147e82cc10b")]
+#![cfg_attr(feature = "better-docs", feature(doc_cfg))]
+
 
 pub use helper_trait::ImpliedPredicate;
 mod helper_trait;
@@ -9,10 +14,10 @@ mod helper_trait;
 /// Convenience attribute macro to help one rewrite a `trait` definition as per the rules described
 /// in the documentation of [`ImpliedPredicate`].
 ///
-/// Indeed, that trait is very handy, but its usage is neither very obvious to write, nor very
-/// readable afterwards.
+/// Indeed, that trait is very handy, but its usage is not only not the most obvious to write, but
+/// more importantly, not very readable afterwards.
 ///
-/// But it is actually a very mechanical operation, hence being a good fit for macro automation 🙂
+/// Since it is actually a very mechanical operation, it is a good fit for macro automation 🙂
 ///
 /// ## Example
 ///
@@ -121,7 +126,9 @@ mod helper_trait;
 /// using [`ImpliedPredicate`], like this:
 ///
 /// ```rust
-/// #[::implied_bounds::implied_bounds] // 👈
+/// use ::implied_bounds::*;
+///
+/// #[implied_bounds] // 👈
 /// trait Trait<U: Clone>
 /// where
 ///     Self::Gat<true>: Send,
@@ -133,25 +140,33 @@ mod helper_trait;
 /// becomes:
 ///
 /// ```rust
+/// use ::implied_bounds::*;
+///
 /// trait Trait<U>
 /// :
-///     ::implied_bounds::ImpliedPredicate<U, Impls: Clone> +
-///     ::implied_bounds::ImpliedPredicate<Self::Gat<true>, Impls: Send> +
+///     ImpliedPredicate<U, Impls: Clone> +
+///     ImpliedPredicate<Self::Gat<true>, Impls: Send> +
 /// {
 ///     type Gat<const IS_SEND: bool>;
 /// }
 /// ```
 ///
-/// where [`ImpliedPredicate`] is trivially-true / always-holding trait clause, on condition
+/// where [`ImpliedPredicate`] is a trivially-true / always-holding trait clause, on condition
 /// that it be well-formed, _i.e._, on condition that the bounds on its `Impls` associated type
-/// do hold; where its `Impls` associated type is defined to always be the same as the generic arg fed
+/// do hold, wherein its `Impls` associated type is defined to always be the same as the generic arg fed
 /// to it:
 ///
-/// ```rust ,ignore
-/// X: Bounds
-/// <=>
-/// ImpliedPredicate<X, Impls: Bounds>
+/// ```rust
+/// # /*
+///                  X    :    Bounds…
+///                       ⇔
+/// ImpliedPredicate<X, Impls: Bounds…>
+/// # */
 /// ```
+#[cfg(feature = "proc-macros")]
+#[cfg_attr(feature = "better-docs",
+    doc(cfg(any(feature = "default", feature = "proc-macros"))),
+)]
 pub use ::implied_bounds_proc_macros::implied_bounds;
 
 // macro internals

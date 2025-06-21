@@ -1,3 +1,5 @@
+#![cfg(feature = "proc-macros")]
+
 pub trait Super { fn super_(&self) {} }
 
 #[::implied_bounds::implied_bounds]

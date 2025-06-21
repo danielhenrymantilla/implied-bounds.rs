@@ -40,6 +40,27 @@ impl<T : ?Sized, Self_ : ?Sized> HasAssoc<T> for Self_ {
 ///     // …
 /// }
 /// ```
+///
+/// # Convenience macro
+///
+/// Since this usage is not only not the most obvious to write, but more importantly, not very
+/// readable afterwards, this crate exposes a helper convenience macro which shall do this
+/// mechanical transformation in your stead; in an automated, reliable, and predictable manner.
+///
+/// ```rust
+/// use ::implied_bounds::implied_bounds;
+///
+/// #[implied_bounds] // 👈
+/// trait SomeTrait<T : Clone>
+/// where
+///     Self::SomeGat<true> : Send,
+/// {
+///     type SomeGat<const IS_SEND: bool>;
+///     // …
+/// }
+/// ```
+///
+/// And _voilà_ 😙👌
 pub
 trait ImpliedPredicate<T : ?Sized>
 :

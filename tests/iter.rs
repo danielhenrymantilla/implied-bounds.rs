@@ -1,3 +1,4 @@
+#![cfg(feature = "proc-macros")]
 
 #[::implied_bounds::implied_bounds]
 trait Iter<'r, _Bounds = &'r Self> : 'r

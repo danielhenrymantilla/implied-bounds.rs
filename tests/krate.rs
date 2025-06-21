@@ -1,3 +1,5 @@
+#![cfg(feature = "proc-macros")]
+
 pub extern crate implied_bounds as renamed;
 extern crate core as implied_bounds;
 

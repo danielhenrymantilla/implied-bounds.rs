@@ -21,6 +21,11 @@ keywords = ["trait", "implied", "entailed", "bounds", "imply"]
 
 [features]
 default = [
+    "proc-macros",
+]
+
+proc-macros = [
+    "dep:implied-bounds-proc_macros"
 ]
 
 # unstable! Will probably use nightly to improve doc quality
@@ -40,6 +45,7 @@ docs-rs = [
 [dependencies]
 
 [dependencies.implied-bounds-proc_macros]
+optional = true
 path = "src/proc_macros"
 version = "=0.1.0-rc2"  # Keep in sync
 
