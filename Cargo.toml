@@ -16,8 +16,8 @@ repository = "https://github.com/danielhenrymantilla/implied-bounds.rs"
 documentation = "https://docs.rs/implied-bounds"
 readme = "README.md"
 
-# description = "…"
-# keywords = []
+description = "Make all the bounds of a trait definition be implied through a helper trait and macro attribute."
+keywords = ["trait", "implied", "entailed", "bounds", "imply"]
 
 [features]
 default = [
