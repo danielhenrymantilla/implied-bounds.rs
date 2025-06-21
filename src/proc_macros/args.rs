@@ -26,7 +26,7 @@ const USAGE: &str = r#"Usage:
     // [Optional] Whether to disable the warning about lack of non-implied clauses.
     allow_none,
 
-    // [Optional] Highlight every non-implied clause (via a deprecation warnings).
+    // [Optional] Highlight every non-implied clause (via deprecation warnings).
     debug,
 
     // [Optional] Override `::implied_bounds::…` paths in the expansion with `$(::)? some::path::…`.
@@ -69,7 +69,6 @@ impl Parse for Args {
             }
             Ok(ret)
         }().map_err(|mut err| {
-            // let usage = Error::new_spanned(&err.to_compile_error(), USAGE);
             let usage = Error::new(Span::mixed_site(), USAGE);
             err.combine(usage);
             err

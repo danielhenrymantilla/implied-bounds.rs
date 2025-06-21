@@ -20,20 +20,20 @@ impl<I : IntoIterator> PourIntoExt for I {}
 /// when extracting a [`.span()`][`Spanned::span()`].
 #[derive(Clone, Copy)]
 pub(crate)
-struct ExplicitSpan(
-    Span,
-);
+struct ExplicitSpan {
+    pub(crate) bare: Span,
+}
 
 impl ExplicitSpan {
     pub(crate)
     fn bare(self) -> Span {
-        self.0
+        self.bare
     }
 
     #[allow(unused)]
     pub(crate)
     fn mixed_site() -> Self {
-        Self(Span::mixed_site())
+        Self { bare: Span::mixed_site() }
     }
 }
 
@@ -67,17 +67,17 @@ trait SpanLocationExt : Copy {
 
 impl SpanLocationExt for Span {
     fn location(self) -> ExplicitSpan {
-        ExplicitSpan(Span::mixed_site().located_at(self))
+        ExplicitSpan { bare: Span::mixed_site().located_at(self) }
     }
 
     /// Unused, here just for consistency.
     #[allow(unused)]
     fn hygiene(self) -> ExplicitSpan {
-        ExplicitSpan(Span::mixed_site().resolved_at(self))
+        ExplicitSpan { bare: Span::mixed_site().resolved_at(self) }
     }
 
     fn location_and_hygiene(self) -> ExplicitSpan {
-        ExplicitSpan(self)
+        ExplicitSpan { bare: self }
     }
 }
 
@@ -145,9 +145,9 @@ fn compile_warning<S : ?Sized + SpanRange<impl Sized>>(
 /// quote_spanned!(..)
 /// ```
 #[allow(unused)]
-macro_rules! quote_spanned {( $span:expr=> $($tt:tt)* ) => (
+macro_rules! quote_spanned {( $explicit_span:expr=> $($tt:tt)* ) => (
     ::quote::quote_spanned!(
-        $crate::utils::ExplicitSpan::bare($span)=>
+        $crate::utils::ExplicitSpan::bare($explicit_span)=>
         $($tt)*
     )
 )}
@@ -166,9 +166,9 @@ pub(crate) use quote;
 /// parse_quote_spanned!(..)
 /// ```
 #[allow(unused)]
-macro_rules! parse_quote_spanned {( $span:expr=> $($tt:tt)* ) => (
+macro_rules! parse_quote_spanned {( $explicit_span:expr=> $($tt:tt)* ) => (
     ::syn::parse_quote_spanned!(
-        $crate::utils::ExplicitSpan::bare($span)=>
+        $crate::utils::ExplicitSpan::bare($explicit_span)=>
         $($tt)*
     )
 )}

@@ -90,6 +90,7 @@ fn implied_bounds_impl(
 
     let mut ret = trait_.into_token_stream();
     debugged_predicates.into_iter().flatten().pour_into(&mut ret);
+
     Ok(ret)
 }
 
@@ -308,7 +309,7 @@ fn may_be_higher_ranked(
         // or `: Fn…(…)` (the latter is very coarse, not all `Fn…` trait clauses
         // are higher-ranked, but since the "bound repetition" is merely there to improve
         // diagnostics, I don't think it warrants the effort of trying to fully visit
-        // an `Fn` clause in order to determine whether its signature is higher-ranked or not).
+        // an `Fn` clause in order to determine whether its signature is actually higher-ranked).
         matches!(
             bound.path.segments.last().unwrap().arguments,
             PathArguments::Parenthesized { .. },
