@@ -7,7 +7,7 @@ name = "implied-bounds"
 authors = [
     "Daniel Henry-Mantilla <daniel.henry.mantilla@gmail.com>",
 ]
-version = "0.1.0-rc4"  # Keep in sync
+version = "0.1.0"  # Keep in sync
 edition = "2021"
 rust-version = "1.79.0"
 
@@ -47,7 +47,7 @@ docs-rs = [
 [dependencies.implied-bounds-proc_macros]
 optional = true
 path = "src/proc_macros"
-version = "=0.1.0-rc4"  # Keep in sync
+version = "=0.1.0"  # Keep in sync
 
 [dev-dependencies]
 
