@@ -226,5 +226,5 @@ I have gone with my own take on the matter, mainly:
   - to slightly rename the `Is` assoc type as `Impls`, and pay special attention to the
     erroring diagnostics to make them as pretty as possible (mostly done in the macro).
 
-[`implied_bounds`]: https://docs.rs/implied-bounds/*/implied_bounds/attr.implied_bounds.html
-[`ImpliedPredicate`]: https://docs.rs/implied-bounds/*/ImpliedPredicate/trait.ImpliedPredicate.html
+[`implied_bounds`]: https://docs.rs/implied-bounds/^0.1.0/implied_bounds/attr.implied_bounds.html
+[`ImpliedPredicate`]: https://docs.rs/implied-bounds/^0.1.0/ImpliedPredicate/trait.ImpliedPredicate.html
