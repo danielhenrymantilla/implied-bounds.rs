@@ -1,7 +1,7 @@
 # `::implied-bounds`
 
 <img
-    src="https://gist.github.com/user-attachments/assets/528cd8ea-f954-434c-a7f2-6147e82cc10b"
+    src="https://raw.githubusercontent.com/danielhenrymantilla/implied-bounds.rs/refs/tags/c1244e3/457381166-528cd8ea-f954-434c-a7f2-6147e82cc10b.png"
     height="100px"
 />
 
@@ -32,7 +32,7 @@ https://github.com/rust-secure-code/safety-dance/)
 # Prior Context
 
 <img
-    src="https://gist.github.com/user-attachments/assets/0e3dc973-57e3-4fcd-9e21-a56e3dff8ffb"
+    src="https://raw.githubusercontent.com/danielhenrymantilla/implied-bounds.rs/refs/tags/c1244e3/457462208-0e3dc973-57e3-4fcd-9e21-a56e3dff8ffb.png"
     height="300px"
 />
 
@@ -226,5 +226,5 @@ I have gone with my own take on the matter, mainly:
   - to slightly rename the `Is` assoc type as `Impls`, and pay special attention to the
     erroring diagnostics to make them as pretty as possible (mostly done in the macro).
 
-[`implied_bounds`]: https://docs.rs/implied-bounds/*/implied_bounds/attr.implied_bounds.html
-[`ImpliedPredicate`]: https://docs.rs/implied-bounds/*/ImpliedPredicate/trait.ImpliedPredicate.html
+[`implied_bounds`]: https://docs.rs/implied-bounds/^0.1.0/implied_bounds/attr.implied_bounds.html
+[`ImpliedPredicate`]: https://docs.rs/implied-bounds/^0.1.0/ImpliedPredicate/trait.ImpliedPredicate.html
