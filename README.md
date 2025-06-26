@@ -227,4 +227,4 @@ I have gone with my own take on the matter, mainly:
     erroring diagnostics to make them as pretty as possible (mostly done in the macro).
 
 [`implied_bounds`]: https://docs.rs/implied-bounds/^0.1.0/implied_bounds/attr.implied_bounds.html
-[`ImpliedPredicate`]: https://docs.rs/implied-bounds/^0.1.0/ImpliedPredicate/trait.ImpliedPredicate.html
+[`ImpliedPredicate`]: https://docs.rs/implied-bounds/^0.1.0/implied_bounds/trait.ImpliedPredicate.html
