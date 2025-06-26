@@ -1,7 +1,7 @@
 # `::implied-bounds`
 
 <img
-    src="https://github.com/danielhenrymantilla/implied-bounds.rs/blob/c1244e3dbdc2a263ea5fa752c58d718da833f636/457381166-528cd8ea-f954-434c-a7f2-6147e82cc10b.png"
+    src="https://raw.githubusercontent.com/danielhenrymantilla/implied-bounds.rs/refs/tags/c1244e3/457381166-528cd8ea-f954-434c-a7f2-6147e82cc10b.png"
     height="100px"
 />
 
@@ -32,7 +32,7 @@ https://github.com/rust-secure-code/safety-dance/)
 # Prior Context
 
 <img
-    src="https://github.com/danielhenrymantilla/implied-bounds.rs/blob/c1244e3dbdc2a263ea5fa752c58d718da833f636/457462208-0e3dc973-57e3-4fcd-9e21-a56e3dff8ffb.png"
+    src="https://raw.githubusercontent.com/danielhenrymantilla/implied-bounds.rs/refs/tags/c1244e3/457462208-0e3dc973-57e3-4fcd-9e21-a56e3dff8ffb.png"
     height="300px"
 />
 
